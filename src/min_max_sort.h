@@ -3,8 +3,9 @@
 class MinMaxSort : public MultiSort
 {
 public:
-    MinMaxSort();
+    MinMaxSort(int a_size = ARRAY_SIZE);
     ~MinMaxSort();
 
+    void printArray();
     void sort();
 };
