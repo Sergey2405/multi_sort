@@ -1,3 +1,6 @@
+#ifndef MINMAXSORT
+#define MINMAXSORT
+
 #include "multi_sort.h"
 
 class MinMaxSort : public MultiSort
@@ -9,3 +12,4 @@ public:
     void printArray();
     std::chrono::microseconds sort();
 };
+#endif
