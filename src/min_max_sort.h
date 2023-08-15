@@ -3,9 +3,9 @@
 class MinMaxSort : public MultiSort
 {
 public:
-    MinMaxSort(int a_size = ARRAY_SIZE);
+    MinMaxSort();
     ~MinMaxSort();
 
     void printArray();
-    void sort();
+    std::chrono::microseconds sort();
 };

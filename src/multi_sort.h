@@ -1,19 +1,24 @@
 #include <iostream>
 #include <array>
 #include <random>
+#include <chrono>
 
-#define ARRAY_SIZE 10
+#define DEFAULT_ARRAY_SIZE 1000
 
 class MultiSort
 {
 public:
-    MultiSort(int a_size = ARRAY_SIZE);
+    MultiSort();
     virtual ~MultiSort();
 
     virtual void printArray();
-    virtual void sort();
+    virtual std::chrono::microseconds sort();
+
+    virtual std::chrono::microseconds get_duration();
+
 
 protected:
     int m_iSize;
     int* m_piRandomArray;
+    std::chrono::microseconds m_duration;
 };

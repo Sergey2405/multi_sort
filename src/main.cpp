@@ -1,41 +1,18 @@
-// #include "multi_sort.h"
 #include "min_max_sort.h"
 
-// #include <iostream>
-// #include <random>
+int array_size;
 
-// #define ARRAY_SIZE 1000
-
-std::random_device rd;
-std::mt19937 gen(rd());
-
-// int random_array[ARRAY_SIZE];
-
-// void init_random_array(int *a_random_array, int &&a_size)
-// {
-//     for (int i = 0; i < a_size; i++)
-//         a_random_array[i] = rand() % (a_size + 1);
-// }
-
-int main()
+int main( int argc, char *argv[], char *envp[] )
 {
-    // init_random_array(random_array, ARRAY_SIZE);
-    // for (auto elem : random_array)
-    //     std::cout << elem << " ";
-    std::cout << "start" << std::endl;
+    array_size = atoi(argv[1]);
+    std::cout << "start array_size=" << array_size << std::endl;
     MinMaxSort minMaxSort;
     std::cout << "minMaxSort" << std::endl;
     MultiSort* pMultiSort = &minMaxSort;
     std::cout << "pMultiSort" << std::endl;
 
-    pMultiSort->printArray();
-    std::cout << "printArray" << std::endl;
-
     pMultiSort->sort();
-    std::cout << "sort" << std::endl;
-
-    pMultiSort->printArray();
-    std::cout << "printArray" << std::endl;
-
+    std::cout << "sort() duration:" << pMultiSort->get_duration().count() << std::endl;
+    
     return 0;
 }
