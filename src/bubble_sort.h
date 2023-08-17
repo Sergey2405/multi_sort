@@ -12,4 +12,5 @@ public:
     void printArray();
     std::chrono::microseconds sort();
 };
+
 #endif

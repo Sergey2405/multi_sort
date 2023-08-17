@@ -4,11 +4,9 @@ extern int array_size;
 
 MultiSort::MultiSort()
 {
-    std::cout << "MultiSort::MultiSort " << std::endl;
-
     m_iSize = array_size;
     m_piRandomArray = new int[m_iSize];
-    for (int i = 0; i < m_iSize; i++)// optimize
+    for (int i = 0; i < m_iSize; i++)// TODO optimize
         m_piRandomArray[i] = rand() % (m_iSize + 1);
 }
 
@@ -27,11 +25,15 @@ void MultiSort::printArray()
 
 std::chrono::microseconds MultiSort::sort()
 {
-    std::cout << "MultiSort::sort()" << std::endl;
     return m_duration;
 }
 
 std::chrono::microseconds MultiSort::get_duration()
 {
     return m_duration;
+}
+
+std::string MultiSort::get_type()
+{
+    return m_sTypeName;
 }

@@ -2,7 +2,7 @@
 
 BubbleSort::BubbleSort()
 {
-    std::cout << "BubbleSort::BubbleSort" << std::endl;
+    m_sTypeName = "bubble sort";
 }
 
 BubbleSort::~BubbleSort()
@@ -14,7 +14,6 @@ void BubbleSort::printArray()
 std::chrono::microseconds BubbleSort::sort()
 {
     auto startClock = std::chrono::high_resolution_clock::now();
-    std::cout << "BubbleSort::sort()" << std::endl;
     for (int i = 0; i < m_iSize; i++)
         for(int j = i; j < m_iSize - 1; j++)
             if (m_piRandomArray[j] > m_piRandomArray[j + 1])

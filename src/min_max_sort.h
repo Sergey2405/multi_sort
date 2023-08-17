@@ -9,7 +9,7 @@ public:
     MinMaxSort();
     ~MinMaxSort();
 
-    void printArray();
     std::chrono::microseconds sort();
 };
+
 #endif

@@ -2,19 +2,15 @@
 
 MinMaxSort::MinMaxSort()
 {
-    std::cout << "MinMaxSort::MinMaxSort" << std::endl;
+    m_sTypeName = "min max sort";
 }
 
 MinMaxSort::~MinMaxSort()
 {}
 
-void MinMaxSort::printArray()
-{}
-
 std::chrono::microseconds MinMaxSort::sort()
 {
     auto startClock = std::chrono::high_resolution_clock::now();
-    std::cout << "MinMaxSort::sort()" << std::endl;
     for (int i = 0; i < m_iSize / 2 - 1; i++) {
         int min = m_piRandomArray[i],
             max = m_piRandomArray[i],
