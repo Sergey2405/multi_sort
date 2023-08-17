@@ -7,7 +7,6 @@
 #include <chrono>
 
 #define DEFAULT_ARRAY_SIZE 1000
-// #define TYPENAMESIZE 256;
 
 class MultiSort
 {

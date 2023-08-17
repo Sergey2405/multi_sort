@@ -3,6 +3,7 @@
 
 #include "bubble_sort.h"
 #include "min_max_sort.h"
+#include "double_bubble_sort.h"
 
 #include <vector>
 

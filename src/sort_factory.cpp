@@ -3,8 +3,8 @@
 SortFactory::SortFactory()
 {
     add(new BubbleSort);
+    add(new DoubleBubbleSort);
     add(new MinMaxSort);
-    // std::cout << "Sorts start\n";
     sort();
 }
 
