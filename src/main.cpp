@@ -1,6 +1,4 @@
-#include "bort_factory.h"
-// #include "min_max_sort.h"
-// #include "bubble_sort.h"
+#include "sort_factory.h"
 
 int array_size;
 
