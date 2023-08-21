@@ -2,8 +2,8 @@
 #define SORTFACTORY
 
 #include "bubble_sort.h"
-#include "min_max_sort.h"
-#include "double_bubble_sort.h"
+#include "selection_sort.h"
+#include "shaker_sort.h"
 
 #include <vector>
 
@@ -15,7 +15,8 @@ public:
 
     void add(MultiSort* a_pMultiSort);
     void sort();
-    void print();
+    bool checkSorted();
+    void print_statistics();
 
 protected:
     std::vector <MultiSort*> m_vpMultiSort;

@@ -16,14 +16,18 @@ public:
 
     virtual void printArray();
     virtual std::chrono::microseconds sort();
-    virtual std::chrono::microseconds get_duration();
-    std::string get_type();
+    bool checkSorted();
+
+    virtual std::chrono::microseconds getDuration();
+    std::string getType();
+    bool getSorted();
 
 protected:
     int m_iSize;
     int* m_piRandomArray;
     std::string m_sTypeName;
     std::chrono::microseconds m_duration;
+    bool m_bSorted = false;
 };
 
 #endif

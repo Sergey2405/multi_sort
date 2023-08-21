@@ -9,7 +9,6 @@ public:
     BubbleSort();
     ~BubbleSort();
 
-    void printArray();
     std::chrono::microseconds sort();
 };
 

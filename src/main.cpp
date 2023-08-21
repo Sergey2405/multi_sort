@@ -6,7 +6,7 @@ int main( int argc, char *argv[], char *envp[])
 {
     array_size = atoi(argv[1]);
     SortFactory sortFactory;
-    sortFactory.print();
+    sortFactory.print_statistics();
 
     return 0;
 }
