@@ -2,7 +2,7 @@
 
 int array_size;
 
-int main( int argc, char *argv[], char *envp[])
+int main(int argc, char *argv[], char *envp[])
 {
     array_size = atoi(argv[1]);
     SortFactory sortFactory;

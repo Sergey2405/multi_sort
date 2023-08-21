@@ -1,14 +1,14 @@
-#include "min_max_sort.h"
+#include "selection_sort.h"
 
-MinMaxSort::MinMaxSort()
+SelectionSort::SelectionSort()
 {
-    m_sTypeName = "min max sort";
+    m_sTypeName = "selection sort";
 }
 
-MinMaxSort::~MinMaxSort()
+SelectionSort::~SelectionSort()
 {}
 
-std::chrono::microseconds MinMaxSort::sort()
+std::chrono::microseconds SelectionSort::sort()
 {
     auto startClock = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < m_iSize / 2 - 1; i++) {

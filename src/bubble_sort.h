@@ -1,5 +1,5 @@
 #ifndef BUBBLESORT
-#define BUBBLESORT
+#define BUBBLERSORT
 
 #include "multi_sort.h"
 

@@ -3,8 +3,9 @@
 SortFactory::SortFactory()
 {
     add(new BubbleSort);
-    add(new MinMaxSort);
-    // std::cout << "Sorts start\n";
+    add(new SelectionSort);
+    add(new ShakerSort);
+    
     sort();
 }
 
