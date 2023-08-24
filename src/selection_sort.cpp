@@ -1,8 +1,9 @@
 #include "selection_sort.h"
 
-SelectionSort::SelectionSort()
+SelectionSort::SelectionSort(const int &a_iSize)
 {
     m_sTypeName = "selection min sort";
+    initArray(a_iSize);
 }
 
 SelectionSort::~SelectionSort()

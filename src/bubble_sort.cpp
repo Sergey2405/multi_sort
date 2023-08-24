@@ -1,8 +1,9 @@
 #include "bubble_sort.h"
 
-BubbleSort::BubbleSort()
+BubbleSort::BubbleSort(const int &a_iSize)
 {
     m_sTypeName = "bubble sort";
+    initArray(a_iSize);
 }
 
 BubbleSort::~BubbleSort()

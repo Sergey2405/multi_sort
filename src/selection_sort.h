@@ -6,7 +6,7 @@
 class SelectionSort : public MultiSort
 {
 public:
-    SelectionSort();
+    SelectionSort(const int &a_iSize);
     ~SelectionSort();
 
     std::chrono::microseconds sort();

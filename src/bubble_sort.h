@@ -6,7 +6,7 @@
 class BubbleSort : public MultiSort
 {
 public:
-    BubbleSort();
+    BubbleSort(const int &a_iSize);
     ~BubbleSort();
 
     std::chrono::microseconds sort();
