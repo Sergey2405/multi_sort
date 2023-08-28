@@ -10,7 +10,7 @@
 class SortFactory
 {
 public:
-    SortFactory();
+    SortFactory(const int &a_iSize);
     ~SortFactory();
 
     void add(MultiSort* a_pMultiSort);

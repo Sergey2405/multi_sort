@@ -3,11 +3,16 @@
 extern int array_size;
 
 MultiSort::MultiSort()
+{}
+
+void MultiSort::initArray(const int &a_iSize)
 {
-    m_iSize = array_size;
-    m_piRandomArray = new int[m_iSize];
-    for (int i = 0; i < m_iSize; i++)// TODO optimize
-        m_piRandomArray[i] = rand() % (m_iSize + 1) + 1;
+    if (a_iSize > 0) {
+        m_iSize = a_iSize;
+        m_piRandomArray = new int[m_iSize];
+        for (int i = 0; i < m_iSize; i++)// TODO optimize
+            m_piRandomArray[i] = rand() % (m_iSize + 1) + 1;
+    }
 }
 
 MultiSort::~MultiSort()

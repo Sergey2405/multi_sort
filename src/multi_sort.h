@@ -14,6 +14,7 @@ public:
     MultiSort();
     virtual ~MultiSort();
 
+    void initArray(const int &a_iSize);
     virtual void printArray();
     virtual std::chrono::microseconds sort();
     bool checkSorted();

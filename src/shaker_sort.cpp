@@ -1,8 +1,9 @@
 #include "shaker_sort.h"
 
-ShakerSort::ShakerSort()
+ShakerSort::ShakerSort(const int &a_iSize)
 {
     m_sTypeName = "shaker sort";
+    initArray(a_iSize);
 }
 
 ShakerSort::~ShakerSort()

@@ -1,10 +1,12 @@
 #include "sort_factory.h"
 
-SortFactory::SortFactory()
+extern bool debug_option;
+
+SortFactory::SortFactory(const int &a_iSize)
 {
-    add(new BubbleSort);
-    add(new ShakerSort);
-    add(new SelectionSort);
+    add(new BubbleSort(a_iSize));
+    add(new ShakerSort(a_iSize));
+    add(new SelectionSort(a_iSize));
 
     sort();
     checkSorted();
@@ -25,7 +27,10 @@ void SortFactory::sort()
 {
     for (auto elem : m_vpMultiSort) {
         std::cout << "Sort \"" << elem->getType() << "\"" << std::endl;
-        // elem->printArray();//make it optional
+        if (debug_option) {
+            std::cout << "array:";
+            elem->printArray();
+        }
         elem->sort();
     }
 }
@@ -45,11 +50,14 @@ void SortFactory::print_statistics()
 {
     std::cout << "statisctics:\n";
     for (auto elem : m_vpMultiSort) {
-        std::cout << "type: " << elem->getType().data()
-                  << ", duration: " << elem->getDuration().count() << " us"
+        std::cout << "type: \"" << elem->getType().data()
+                  << "\", duration: " << elem->getDuration().count() << " us"
                   << ", checked: " << elem->getSorted() //TODO improve
                   << std::endl;
-        // elem->printArray();//make it optional
+        if (debug_option) {
+            std::cout << "array:";
+            elem->printArray();
+        }
     }
     std::cout << std::endl;
 }

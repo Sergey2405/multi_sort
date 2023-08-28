@@ -6,7 +6,7 @@
 class ShakerSort : public MultiSort
 {
 public:
-    ShakerSort();
+    ShakerSort(const int &a_iSize);
     ~ShakerSort();
 
     std::chrono::microseconds sort();
