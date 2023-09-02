@@ -10,6 +10,9 @@ public:
     ~QuickSort();
 
     std::chrono::microseconds sort();
+
+private:
+    void sort(int startIx, int endIx);
 };
 
 #endif

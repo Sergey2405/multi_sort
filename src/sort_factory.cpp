@@ -7,6 +7,7 @@ SortFactory::SortFactory(const int &a_iSize)
     add(new BubbleSort(a_iSize));
     add(new ShakerSort(a_iSize));
     add(new SelectionSort(a_iSize));
+    add(new QuickSort(a_iSize));
 
     sort();
     checkSorted();
