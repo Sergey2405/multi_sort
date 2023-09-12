@@ -1,6 +1,7 @@
 #ifndef SORTFACTORY
 #define SORTFACTORY
 
+// #include "sort_factory.cpp"
 // #include "bubble_sort.h"
 // #include "selection_sort.h"
 // #include "shaker_sort.h"
@@ -10,14 +11,14 @@
 
 #include <vector>
 
-template <typename T>
+template <class T>
 class SortFactory
 {
 public:
-    SortFactory(const int &a_iSize);
+    SortFactory(const int &a_iSize = DEFAULT_ARRAY_SIZE);
     ~SortFactory();
 
-    // void add(MultiSort* a_pMultiSort);
+    void add(MultiSort<T>* a_pMultiSort);
     void sort();
     bool checkSorted();
     void print_statistics();

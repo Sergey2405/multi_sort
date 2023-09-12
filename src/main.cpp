@@ -1,4 +1,5 @@
-// #include "sort_factory.h"
+#include "sort_factory.h"
+// #include "sort_factory.cpp"
 #include "multi_sort.h"
 
 #include <unistd.h>
@@ -43,7 +44,8 @@ int main( int argc, char *argv[], char *envp[])
         return -1;
     }
 
-    // SortFactory sortFactory(array_size);
+    // SortFactory<int> sortFactory(array_size);
+    SortFactory<int> *sortFactory_ptr = new SortFactory<int>(array_size);
     // sortFactory.print_statistics();
 
     return 0;

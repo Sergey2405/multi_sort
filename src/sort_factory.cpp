@@ -2,7 +2,7 @@
 
 extern bool debug_option;
 
-template <typename T>
+template<class T>
 SortFactory<T>::SortFactory(const int &a_iSize)
 {
     // add(new BubbleSort(a_iSize));
@@ -14,43 +14,45 @@ SortFactory<T>::SortFactory(const int &a_iSize)
     checkSorted();
 }
 
-template <typename T>
+template<class T>
 SortFactory<T>::~SortFactory()
 {
     //TODO
     //delete other created objects
 }
 
-// void SortFactory::add(MultiSort* a_pMultiSort)
-// {
-//     m_vpMultiSort.push_back(a_pMultiSort);
-// }
-template <typename T>
-void SortFactory<T>::sort()
+template <class T>
+void SortFactory<T>::add(MultiSort<T>* a_pMultiSort)
 {
-    for (auto elem : m_vpMultiSort) {
-        std::cout << "Sort \"" << elem->getType() << "\"" << std::endl;
-        if (debug_option) {
-            std::cout << "array:";
-            elem->printArray();
-        }
-        elem->sort();
-    }
+    m_vpMultiSort.push_back(a_pMultiSort);
 }
 
-template <typename T>
+template <class T>
+void SortFactory<T>::sort()
+{
+    // for (auto elem : m_vpMultiSort) {
+    //     std::cout << "Sort \"" << elem->getType() << "\"" << std::endl;
+    //     if (debug_option) {
+    //         std::cout << "array:";
+    //         elem->printArray();
+    //     }
+    //     elem->sort();
+    // }
+}
+
+template <class T>
 bool SortFactory<T>::checkSorted()
 {
     bool bSorted = true;
-    for (auto elem: m_vpMultiSort){
-        if (!elem->checkSorted()){
-            bSorted = false;
-        }
-    }
+    // for (auto elem: m_vpMultiSort){
+    //     if (!elem->checkSorted()){
+    //         bSorted = false;
+    //     }
+    // }
     return bSorted;
 }
 
-template <typename T>
+template <class T>
 void SortFactory<T>::print_statistics()
 {
     std::cout << "statisctics:\n";
@@ -65,4 +67,10 @@ void SortFactory<T>::print_statistics()
         }
     }
     std::cout << std::endl;
+}
+
+void TempSortFactoryFunc()
+{
+    SortFactory<int> tmpSF;
+    MultiSort<int> tmpMS;
 }
