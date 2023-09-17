@@ -1,13 +1,17 @@
+#ifndef MULTISORT_CPP
+#define MULTISORT_CPP
+
 #include "multi_sort.h"
 
 extern int array_size;
+
+template class MultiSort<int>;
 
 template <class T>
 MultiSort<T>::MultiSort()
 {}
 
 template <class T> 
-// void MultiSort::initArray(const int &a_iSize)
 void MultiSort<T>::initArray(const int &a_iSize)
 {
     if (a_iSize > 0) {
@@ -70,8 +74,11 @@ bool MultiSort<T>::getSorted()
     return m_bSorted;
 }
 
-void TempMultiSortFunc()
+void tempMultiSortFunch()
 {
     // SortFactory<int> tmpSF;
-    MultiSort<int> tmpMS;
+    MultiSort<int> *tmpMS;
+    // BubbleSort<int> xxxx(1);
 }
+
+#endif

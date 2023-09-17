@@ -1,11 +1,14 @@
 #include "sort_factory.h"
+#include "bubble_sort.h"
 
 extern bool debug_option;
+
+template class MultiSort<int>;
 
 template<class T>
 SortFactory<T>::SortFactory(const int &a_iSize)
 {
-    // add(new BubbleSort(a_iSize));
+    add(new BubbleSort<T>(a_iSize));
     // add(new ShakerSort(a_iSize));
     // add(new SelectionSort(a_iSize));
     // add(new QuickSort(a_iSize));
@@ -69,8 +72,8 @@ void SortFactory<T>::print_statistics()
     std::cout << std::endl;
 }
 
-void TempSortFactoryFunc()
+void tempSortFactoryFunch()
 {
     SortFactory<int> tmpSF;
-    MultiSort<int> tmpMS;
+    // MultiSort<int> *tmpMS;
 }

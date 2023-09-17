@@ -2,7 +2,7 @@
 #define SORTFACTORY
 
 // #include "sort_factory.cpp"
-// #include "bubble_sort.h"
+#include "bubble_sort.h"
 // #include "selection_sort.h"
 // #include "shaker_sort.h"
 // #include "quick_sort.h"
