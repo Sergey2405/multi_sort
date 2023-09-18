@@ -3,7 +3,7 @@
 
 extern bool debug_option;
 
-template class MultiSort<int>;
+template class SortFactory<int>;
 
 template<class T>
 SortFactory<T>::SortFactory(const int &a_iSize)
@@ -33,25 +33,25 @@ void SortFactory<T>::add(MultiSort<T>* a_pMultiSort)
 template <class T>
 void SortFactory<T>::sort()
 {
-    // for (auto elem : m_vpMultiSort) {
-    //     std::cout << "Sort \"" << elem->getType() << "\"" << std::endl;
-    //     if (debug_option) {
-    //         std::cout << "array:";
-    //         elem->printArray();
-    //     }
-    //     elem->sort();
-    // }
+    for (auto elem : m_vpMultiSort) {
+        std::cout << "Sort \"" << elem->getType() << "\"" << std::endl;
+        if (debug_option) {
+            std::cout << "array:";
+            elem->printArray();
+        }
+        elem->sort();
+    }
 }
 
 template <class T>
 bool SortFactory<T>::checkSorted()
 {
     bool bSorted = true;
-    // for (auto elem: m_vpMultiSort){
-    //     if (!elem->checkSorted()){
-    //         bSorted = false;
-    //     }
-    // }
+    for (auto elem: m_vpMultiSort){
+        if (!elem->checkSorted()){
+            bSorted = false;
+        }
+    }
     return bSorted;
 }
 
@@ -70,10 +70,4 @@ void SortFactory<T>::print_statistics()
         }
     }
     std::cout << std::endl;
-}
-
-void tempSortFactoryFunch()
-{
-    SortFactory<int> tmpSF;
-    // MultiSort<int> *tmpMS;
 }

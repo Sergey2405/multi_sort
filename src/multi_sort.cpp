@@ -1,6 +1,3 @@
-#ifndef MULTISORT_CPP
-#define MULTISORT_CPP
-
 #include "multi_sort.h"
 
 extern int array_size;
@@ -73,12 +70,3 @@ bool MultiSort<T>::getSorted()
 {
     return m_bSorted;
 }
-
-void tempMultiSortFunch()
-{
-    // SortFactory<int> tmpSF;
-    MultiSort<int> *tmpMS;
-    // BubbleSort<int> xxxx(1);
-}
-
-#endif

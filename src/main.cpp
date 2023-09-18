@@ -26,7 +26,7 @@ int main( int argc, char *argv[], char *envp[])
             case 's':
                 array_size = atoi(optarg);
                 break;
-            case ':':// it does nor work!
+            case ':':// it does not work!
                 std::cout << "Option needs a value";
                 return -1;
             case '?':
@@ -44,9 +44,8 @@ int main( int argc, char *argv[], char *envp[])
         return -1;
     }
 
-    // SortFactory<int> sortFactory(array_size);
-    SortFactory<int> *sortFactory_ptr = new SortFactory<int>(array_size);
-    // sortFactory.print_statistics();
+    SortFactory<int> sortFactory(array_size);
+    sortFactory.print_statistics();
 
     return 0;
 }
