@@ -2,7 +2,7 @@
 
 extern int array_size;
 
-template class MultiSort<int>;
+template class MultiSort<SORTED_TYPE>;
 
 template <class T>
 MultiSort<T>::MultiSort()

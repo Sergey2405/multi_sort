@@ -1,6 +1,6 @@
 #include "bubble_sort.h"
 
-template class BubbleSort<int>;
+template class BubbleSort<SORTED_TYPE>;
 
 template <class T>
 BubbleSort<T>::BubbleSort(const int &a_iSize)

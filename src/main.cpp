@@ -1,7 +1,6 @@
 #include "sort_factory.h"
-// #include "sort_factory.cpp"
-// #include "multi_sort.h"
 
+//TODO: handle it
 #include <unistd.h>
 // #include <stdio.h>
 
@@ -9,7 +8,6 @@
 //TODO make flexible debug level
 int array_size;
 bool debug_option = false;
-
 
 // how to launch
 // example: ./multi_sort -s 60 -d
@@ -44,7 +42,7 @@ int main( int argc, char *argv[], char *envp[])
         return -1;
     }
 
-    SortFactory<int> sortFactory(array_size);
+    SortFactory<SORTED_TYPE> sortFactory(array_size);
     sortFactory.print_statistics();
 
     return 0;

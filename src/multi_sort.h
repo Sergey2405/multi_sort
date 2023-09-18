@@ -7,6 +7,7 @@
 #include <chrono>
 
 #define DEFAULT_ARRAY_SIZE 1000
+typedef long int SORTED_TYPE;
 
 template <typename T>
 class MultiSort
@@ -26,7 +27,6 @@ public:
 
 protected:
     int m_iSize;
-    // int* m_piRandomArray;
     T* m_piRandomArray;
     std::string m_sTypeName;
     std::chrono::microseconds m_duration;

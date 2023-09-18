@@ -1,12 +1,12 @@
 #ifndef SORTFACTORY
 #define SORTFACTORY
 
-#include "bubble_sort.h"
-// #include "selection_sort.h"
-// #include "shaker_sort.h"
-// #include "quick_sort.h"
-
 #include "multi_sort.h"
+
+#include "bubble_sort.h"
+#include "shaker_sort.h"
+#include "selection_sort.h"
+#include "quick_sort.h"
 
 #include <vector>
 

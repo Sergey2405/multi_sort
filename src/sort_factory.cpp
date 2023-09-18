@@ -1,17 +1,16 @@
 #include "sort_factory.h"
-#include "bubble_sort.h"
 
 extern bool debug_option;
 
-template class SortFactory<int>;
+template class SortFactory<SORTED_TYPE>;
 
 template<class T>
 SortFactory<T>::SortFactory(const int &a_iSize)
 {
     add(new BubbleSort<T>(a_iSize));
-    // add(new ShakerSort(a_iSize));
-    // add(new SelectionSort(a_iSize));
-    // add(new QuickSort(a_iSize));
+    add(new ShakerSort<T>(a_iSize));
+    add(new SelectionSort<T>(a_iSize));
+    add(new QuickSort<T>(a_iSize));
 
     sort();
     checkSorted();
