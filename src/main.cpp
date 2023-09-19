@@ -1,5 +1,6 @@
 #include "sort_factory.h"
 
+//TODO: handle it
 #include <unistd.h>
 // #include <stdio.h>
 
@@ -7,7 +8,6 @@
 //TODO make flexible debug level
 int array_size;
 bool debug_option = false;
-
 
 // how to launch
 // example: ./multi_sort -s 60 -d
@@ -24,7 +24,7 @@ int main( int argc, char *argv[], char *envp[])
             case 's':
                 array_size = atoi(optarg);
                 break;
-            case ':':// it does nor work!
+            case ':':// it does not work!
                 std::cout << "Option needs a value";
                 return -1;
             case '?':
@@ -42,7 +42,7 @@ int main( int argc, char *argv[], char *envp[])
         return -1;
     }
 
-    SortFactory sortFactory(array_size);
+    SortFactory<SORTED_TYPE> sortFactory(array_size);
     sortFactory.print_statistics();
 
     return 0;

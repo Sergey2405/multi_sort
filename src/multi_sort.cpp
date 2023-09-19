@@ -2,40 +2,47 @@
 
 extern int array_size;
 
-MultiSort::MultiSort()
+template class MultiSort<SORTED_TYPE>;
+
+template <class T>
+MultiSort<T>::MultiSort()
 {}
 
-void MultiSort::initArray(const int &a_iSize)
+template <class T> 
+void MultiSort<T>::initArray(const int &a_iSize)
 {
     if (a_iSize > 0) {
         m_iSize = a_iSize;
-        m_piRandomArray = new int[m_iSize];
+        m_piRandomArray = new T[m_iSize];
         for (int i = 0; i < m_iSize; i++)// TODO optimize
             m_piRandomArray[i] = rand() % (m_iSize + 1) + 1;
     }
 }
 
-MultiSort::~MultiSort()
+template <class T>
+MultiSort<T>::~MultiSort()
 {
     std::cout << "MultiSort::~MultiSort";
 }
 
-void MultiSort::printArray()
+template <class T>
+void MultiSort<T>::printArray()
 {
     for (int i = 0; i < m_iSize; i++)
         std::cout << m_piRandomArray[i] << " ";
     std::cout << std::endl;
 }
 
-std::chrono::microseconds MultiSort::sort()
+template <class T>
+std::chrono::microseconds MultiSort<T>::sort()
 {
     return m_duration;
 }
 
-bool MultiSort::checkSorted()
+template <class T>
+bool MultiSort<T>::checkSorted()
 {
     bool bSorted = true;
-    // std::cout << "MultiSort::checkSorted() ";printArray(); std::cout << std::endl; //remove
     for(int i = 0; i < m_iSize - 1; i++){
         if (m_piRandomArray[i] > m_piRandomArray[i+ 1]){
             bSorted = false;
@@ -46,17 +53,20 @@ bool MultiSort::checkSorted()
     return bSorted;
 }
 
-std::chrono::microseconds MultiSort::getDuration()
+template <class T>
+std::chrono::microseconds MultiSort<T>::getDuration()
 {
     return m_duration;
 }
 
-std::string MultiSort::getType()
+template <class T>
+std::string MultiSort<T>::getType()
 {
     return m_sTypeName;
 }
 
-bool MultiSort::getSorted()
+template <class T>
+bool MultiSort<T>::getSorted()
 {
     return m_bSorted;
 }

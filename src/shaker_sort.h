@@ -3,7 +3,8 @@
 
 #include "multi_sort.h"
 
-class ShakerSort : public MultiSort
+template <class T>
+class ShakerSort : public MultiSort<T>
 {
 public:
     ShakerSort(const int &a_iSize);

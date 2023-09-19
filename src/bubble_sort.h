@@ -3,7 +3,8 @@
 
 #include "multi_sort.h"
 
-class BubbleSort : public MultiSort
+template <class T>
+class BubbleSort : public MultiSort<T>
 {
 public:
     BubbleSort(const int &a_iSize);

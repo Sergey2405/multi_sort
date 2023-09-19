@@ -2,29 +2,35 @@
 
 extern bool debug_option;
 
-SortFactory::SortFactory(const int &a_iSize)
+template class SortFactory<SORTED_TYPE>;
+
+template<class T>
+SortFactory<T>::SortFactory(const int &a_iSize)
 {
-    add(new BubbleSort(a_iSize));
-    add(new ShakerSort(a_iSize));
-    add(new SelectionSort(a_iSize));
-    add(new QuickSort(a_iSize));
+    add(new BubbleSort<T>(a_iSize));
+    add(new ShakerSort<T>(a_iSize));
+    add(new SelectionSort<T>(a_iSize));
+    add(new QuickSort<T>(a_iSize));
 
     sort();
     checkSorted();
 }
 
-SortFactory::~SortFactory()
+template<class T>
+SortFactory<T>::~SortFactory()
 {
     //TODO
     //delete other created objects
 }
 
-void SortFactory::add(MultiSort* a_pMultiSort)
+template <class T>
+void SortFactory<T>::add(MultiSort<T>* a_pMultiSort)
 {
     m_vpMultiSort.push_back(a_pMultiSort);
 }
 
-void SortFactory::sort()
+template <class T>
+void SortFactory<T>::sort()
 {
     for (auto elem : m_vpMultiSort) {
         std::cout << "Sort \"" << elem->getType() << "\"" << std::endl;
@@ -36,7 +42,8 @@ void SortFactory::sort()
     }
 }
 
-bool SortFactory::checkSorted()
+template <class T>
+bool SortFactory<T>::checkSorted()
 {
     bool bSorted = true;
     for (auto elem: m_vpMultiSort){
@@ -47,7 +54,8 @@ bool SortFactory::checkSorted()
     return bSorted;
 }
 
-void SortFactory::print_statistics()
+template <class T>
+void SortFactory<T>::print_statistics()
 {
     std::cout << "statisctics:\n";
     for (auto elem : m_vpMultiSort) {

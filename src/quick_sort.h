@@ -3,7 +3,8 @@
 
 #include "multi_sort.h"
 
-class QuickSort : public MultiSort
+template<class T>
+class QuickSort : public MultiSort<T>
 {
 public:
     QuickSort(const int &a_iSize);
