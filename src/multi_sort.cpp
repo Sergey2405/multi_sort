@@ -3,6 +3,7 @@
 extern int array_size;
 
 template class MultiSort<SORTED_TYPE>;
+// template class SortFactory<SORTED_TYPE>;
 
 template <class T>
 MultiSort<T>::MultiSort()
@@ -69,4 +70,22 @@ template <class T>
 bool MultiSort<T>::getSorted()
 {
     return m_bSorted;
+}
+
+template <class T>
+unsigned long long int MultiSort<T>::getFetchCounter()
+{
+    return m_iFetchCounter;
+}
+
+template <class T>
+unsigned long long int MultiSort<T>::getCompareCounter()
+{
+    return m_iCompareCounter;
+}
+
+template <class T>
+unsigned long long int MultiSort<T>::getSwapCounter()
+{
+    return m_iSwapCounter;
 }

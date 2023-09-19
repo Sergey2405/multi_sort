@@ -18,9 +18,14 @@ std::chrono::microseconds BubbleSort<T>::sort()
 {
     auto startClock = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < MultiSort<T>::m_iSize; i++)
-        for (int j = 0; j < MultiSort<T>::m_iSize - 1; j++)
-            if (MultiSort<T>::m_piRandomArray[j] > MultiSort<T>::m_piRandomArray[j + 1])
+        for (int j = 0; j < MultiSort<T>::m_iSize - 1; j++) {
+            if (MultiSort<T>::m_piRandomArray[j] > MultiSort<T>::m_piRandomArray[j + 1]) {
                 std::swap(MultiSort<T>::m_piRandomArray[j], MultiSort<T>::m_piRandomArray[j + 1]);
+                MultiSort<T>::m_iSwapCounter++;
+            }
+            MultiSort<T>::m_iCompareCounter++;
+            MultiSort<T>::m_iFetchCounter += 2;
+        }
     auto endClock = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endClock - startClock);
     MultiSort<T>::m_duration = duration;
