@@ -62,6 +62,9 @@ void SortFactory<T>::print_statistics()
         std::cout << "type: \"" << elem->getType().data()
                   << "\", duration: " << elem->getDuration().count() << " us"
                   << ", checked: " << elem->getSorted() //TODO improve
+                  << ", FetchCounter: " << elem->getFetchCounter()
+                  << ", CompareCounter: " << elem->getCompareCounter()
+                  << ", SwapCounter: " << elem->getSwapCounter()
                   << std::endl;
         if (debug_option) {
             std::cout << "array:";

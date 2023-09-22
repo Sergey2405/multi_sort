@@ -24,6 +24,9 @@ public:
 
 protected:
     std::vector <MultiSort<T>*> m_vpMultiSort;
+
+private:
+    friend MultiSort<T>;
 };
 
 #endif
