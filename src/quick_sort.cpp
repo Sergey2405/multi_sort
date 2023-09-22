@@ -18,6 +18,7 @@ void QuickSort<T>::sort(int startIx, int endIx)
 {
     if (!(startIx < endIx))
         return;
+    bool lesserSwap = false;
     auto pivot = QuickSort<T>::m_piRandomArray[(startIx + endIx) / 2];
     MultiSort<T>::m_iFetchCounter++;
     int pivotIx = (startIx + endIx) / 2,
@@ -30,6 +31,7 @@ void QuickSort<T>::sort(int startIx, int endIx)
                 //TODO optimize fetch
                 if (QuickSort<T>::m_piRandomArray[lowerIx] > QuickSort<T>::m_piRandomArray[upperIx]) {
                     std::swap(QuickSort<T>::m_piRandomArray[lowerIx], QuickSort<T>::m_piRandomArray[upperIx]);
+                    lesserSwap = true;
                     MultiSort<T>::m_iSwapCounter++;
                 }
                 MultiSort<T>::m_iFetchCounter += 2;
@@ -50,7 +52,8 @@ void QuickSort<T>::sort(int startIx, int endIx)
         MultiSort<T>::m_iFetchCounter++;
         upperIx++;
     }
-    sort(startIx, lowerIx);
+    if (lesserSwap)
+       sort(startIx, lowerIx);
     sort(lowerIx + 1, endIx);
 }
 
