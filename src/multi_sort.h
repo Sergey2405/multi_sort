@@ -6,8 +6,6 @@
 #include <random>
 #include <chrono>
 
-// #include "sort_factory.h"
-
 #define DEFAULT_ARRAY_SIZE 1000
 typedef long int SORTED_TYPE;
 
