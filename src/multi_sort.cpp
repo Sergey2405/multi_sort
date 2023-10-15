@@ -3,7 +3,6 @@
 extern int array_size;
 
 template class MultiSort<SORTED_TYPE>;
-// template class SortFactory<SORTED_TYPE>;
 
 template <class T>
 MultiSort<T>::MultiSort()

@@ -18,28 +18,31 @@ void QuickSort<T>::sort(int startIx, int endIx)
 {
     if (!(startIx < endIx))
         return;
+    bool lesserSwap = false;
     auto pivot = QuickSort<T>::m_piRandomArray[(startIx + endIx) / 2];
     MultiSort<T>::m_iFetchCounter++;
     int pivotIx = (startIx + endIx) / 2,
         lowerIx = startIx,
         upperIx = startIx + 1;
     while (!(upperIx > endIx)) {
-        if (!(QuickSort<T>::m_piRandomArray[upperIx] > pivot)) {
+        auto upperValue = QuickSort<T>::m_piRandomArray[upperIx];
+        if (!(upperValue > pivot)) {
             MultiSort<T>::m_iCompareCounter++;
             while (lowerIx < upperIx) {
                 //TODO optimize fetch
-                if (QuickSort<T>::m_piRandomArray[lowerIx] > QuickSort<T>::m_piRandomArray[upperIx]) {
+                auto lowerValue = QuickSort<T>::m_piRandomArray[lowerIx];
+                if (lowerValue > upperValue) {
                     std::swap(QuickSort<T>::m_piRandomArray[lowerIx], QuickSort<T>::m_piRandomArray[upperIx]);
+                    lesserSwap = true;
                     MultiSort<T>::m_iSwapCounter++;
                 }
-                MultiSort<T>::m_iFetchCounter += 2;
+                MultiSort<T>::m_iFetchCounter ++;
                 MultiSort<T>::m_iCompareCounter++;
 
-                if (QuickSort<T>::m_piRandomArray[lowerIx] < pivot) {
+                if (lowerValue < pivot) {
                     lowerIx++;
                     continue;
                 }
-                MultiSort<T>::m_iFetchCounter++;
                 MultiSort<T>::m_iCompareCounter++;
 
                 break;
@@ -50,7 +53,8 @@ void QuickSort<T>::sort(int startIx, int endIx)
         MultiSort<T>::m_iFetchCounter++;
         upperIx++;
     }
-    sort(startIx, lowerIx);
+    if (lesserSwap)
+       sort(startIx, lowerIx);
     sort(lowerIx + 1, endIx);
 }
 
