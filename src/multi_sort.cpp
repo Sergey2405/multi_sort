@@ -8,14 +8,18 @@ template <class T>
 MultiSort<T>::MultiSort()
 {}
 
+//TODO move it to structure
 template <class T> 
 void MultiSort<T>::initArray(const int &a_iSize)
 {
     if (a_iSize > 0) {
         m_iSize = a_iSize;
-        m_piRandomArray = new T[m_iSize];
-        for (int i = 0; i < m_iSize; i++)// TODO optimize
-            m_piRandomArray[i] = rand() % (m_iSize + 1) + 1;
+        m_randomArray = new T[m_iSize];
+        for (int i = 0; i < m_iSize; i++) {// TODO optimize 
+            // m_piRandomArray[i] = rand() % (m_iSize + 1) + 1;
+            m_randomArray[i].value = rand() % (m_iSize + 1) + 1;
+            m_randomArray[i].description = "xxx";
+        }
     }
 }
 
@@ -29,7 +33,7 @@ template <class T>
 void MultiSort<T>::printArray()
 {
     for (int i = 0; i < m_iSize; i++)
-        std::cout << m_piRandomArray[i] << " ";
+        std::cout << m_randomArray[i] << " ";
     std::cout << std::endl;
 }
 
@@ -44,7 +48,7 @@ bool MultiSort<T>::checkSorted()
 {
     bool bSorted = true;
     for(int i = 0; i < m_iSize - 1; i++){
-        if (m_piRandomArray[i] > m_piRandomArray[i+ 1]){
+        if (m_randomArray[i] > m_randomArray[i+ 1]){
             bSorted = false;
             break;
         }

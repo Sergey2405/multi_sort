@@ -20,15 +20,15 @@ std::chrono::microseconds ShakerSort<T>::sort()
     for (int i = 0; i < ShakerSort<T>::m_iSize; i++) {
         int j;
         for (j = i; j < ShakerSort<T>::m_iSize - i - 1; j++)
-            if (ShakerSort<T>::m_piRandomArray[j] > ShakerSort<T>::m_piRandomArray[j + 1]) {
-                std::swap(ShakerSort<T>::m_piRandomArray[j], ShakerSort<T>::m_piRandomArray[j + 1]);
+            if (ShakerSort<T>::m_randomArray[j] > ShakerSort<T>::m_randomArray[j + 1]) {
+                std::swap(ShakerSort<T>::m_randomArray[j], ShakerSort<T>::m_randomArray[j + 1]);
                 MultiSort<T>::m_iSwapCounter++;
             }
             MultiSort<T>::m_iCompareCounter++;
             MultiSort<T>::m_iFetchCounter += 2;
         for (j = j; j > i; j--)
-            if (ShakerSort<T>::m_piRandomArray[j - 1] > ShakerSort<T>::m_piRandomArray[j]) {
-                std::swap(ShakerSort<T>::m_piRandomArray[j - 1], ShakerSort<T>::m_piRandomArray[j]);
+            if (ShakerSort<T>::m_randomArray[j - 1] > ShakerSort<T>::m_randomArray[j]) {
+                std::swap(ShakerSort<T>::m_randomArray[j - 1], ShakerSort<T>::m_randomArray[j]);
                 MultiSort<T>::m_iSwapCounter++;
             }
             MultiSort<T>::m_iCompareCounter++;
