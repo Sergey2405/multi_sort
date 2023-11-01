@@ -3,12 +3,10 @@
 
 #include <iostream>
 #include <array>
-#include <random>
 #include <chrono>
 #include "sorted_struct.h"
 
 #define DEFAULT_ARRAY_SIZE 1000
-// typedef long int SORTED_TYPE;
 typedef SortedStruct SORTED_TYPE;
 
 template <typename T>

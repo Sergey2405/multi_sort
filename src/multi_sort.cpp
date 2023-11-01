@@ -15,11 +15,8 @@ void MultiSort<T>::initArray(const int &a_iSize)
     if (a_iSize > 0) {
         m_iSize = a_iSize;
         m_randomArray = new T[m_iSize];
-        for (int i = 0; i < m_iSize; i++) {// TODO optimize 
-            // m_piRandomArray[i] = rand() % (m_iSize + 1) + 1;
-            m_randomArray[i].value = rand() % (m_iSize + 1) + 1;
-            m_randomArray[i].description = "xxx";
-        }
+        for (int i = 0; i < m_iSize; i++)
+            m_randomArray[i].setValue(i, m_iSize);
     }
 }
 

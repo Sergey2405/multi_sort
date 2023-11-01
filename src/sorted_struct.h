@@ -5,8 +5,11 @@
 
 struct SortedStruct
 {
-    int value;
+    int m_iValue;
+    int m_iPosition;
     std::string description;
+
+    void setValue(int a_Ix, int a_iRange);
 
     friend bool operator<(const SortedStruct& l, const SortedStruct& r);
     friend bool operator>(const SortedStruct& l, const SortedStruct& r);
