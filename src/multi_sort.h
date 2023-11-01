@@ -3,11 +3,11 @@
 
 #include <iostream>
 #include <array>
-#include <random>
 #include <chrono>
+#include "sorted_struct.h"
 
 #define DEFAULT_ARRAY_SIZE 1000
-typedef long int SORTED_TYPE;
+typedef SortedStruct SORTED_TYPE;
 
 template <typename T>
 class MultiSort
@@ -30,7 +30,7 @@ public:
 
 protected:
     int m_iSize;
-    T* m_piRandomArray;
+    T* m_randomArray;
     std::string m_sTypeName;
     std::chrono::microseconds m_duration;
     bool m_bSorted = false;
@@ -40,3 +40,5 @@ protected:
 };
 
 #endif
+
+
