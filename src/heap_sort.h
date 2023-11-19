@@ -11,7 +11,8 @@ public:
     HeapSort(const int &a_iSize);
     ~HeapSort();
 
-    void make_heap(int nLevels, int a_rSortedCounter = 0);
+    // void make_heap(int nLevels, int a_rSortedCounter = 0);
+    void make_heap(int a_rSortedCounter);
     void make_heap();
 
     std::chrono::microseconds sort();
