@@ -22,6 +22,7 @@ void HeapSort<T>::make_heap()
          currentLevel > 0;
          currentLevel--){
         lowerIx = std::min(HeapSort<T>::m_iSize - 1, (int)pow(2, currentLevel));
+        lowerIx = HeapSort<T>::m_iSize - 1;
         for (; lowerIx > 0; lowerIx--) {
             int upperIx = (lowerIx + 1) / 2 - 1;
             if (MultiSort<T>::m_randomArray[lowerIx] > MultiSort<T>::m_randomArray[upperIx]) {
@@ -36,27 +37,38 @@ void HeapSort<T>::make_heap()
 }
 
 template <class T>
-void HeapSort<T>::make_heap(int a_SortedCounter)
+void HeapSort<T>::make_heap(int a_sortedCounter)
 {
-    int lowerIx = HeapSort<T>::m_iSize - a_SortedCounter - 1,
-        upperIx;
-        lowerIx = HeapSort<T>::m_iSize - a_SortedCounter - 1;
-    for (; lowerIx > 0; lowerIx--) {
-        upperIx = (lowerIx + 1) / 2 - 1;
-        if (MultiSort<T>::m_randomArray[lowerIx] > MultiSort<T>::m_randomArray[upperIx]) {
-            std::swap(MultiSort<T>::m_randomArray[lowerIx], MultiSort<T>::m_randomArray[upperIx]);
-                            MultiSort<T>::m_iSwapCounter++;
-        }
-        MultiSort<T>::m_iCompareCounter++;
-        MultiSort<T>::m_iFetchCounter += 2;
-    }
-    if(HeapSort<T>::m_iSize > a_SortedCounter + 1){
-        std::swap(MultiSort<T>::m_randomArray[0], MultiSort<T>::m_randomArray[HeapSort<T>::m_iSize - a_SortedCounter - 1]);
+    sort_heap(0, a_sortedCounter);
+    if (HeapSort<T>::m_iSize - a_sortedCounter - 1 > 0) {
+        std::swap(MultiSort<T>::m_randomArray[0], MultiSort<T>::m_randomArray[HeapSort<T>::m_iSize - a_sortedCounter - 1]);
         MultiSort<T>::m_iSwapCounter++;
-        make_heap(a_SortedCounter + 1);
+        make_heap(a_sortedCounter + 1);
     }
 }
 
+template <class T>
+void HeapSort<T>::sort_heap(int a_upperIx, int a_sortedCounter)
+{
+    int lowerIx1 = a_upperIx * 2 + 1;
+    int lowerIx2 = lowerIx1 + 1;
+    if (lowerIx1 > HeapSort<T>::m_iSize - a_sortedCounter - 1)
+        return;
+    if (MultiSort<T>::m_randomArray[lowerIx1] > MultiSort<T>::m_randomArray[a_upperIx]) {
+        std::swap(MultiSort<T>::m_randomArray[lowerIx1], MultiSort<T>::m_randomArray[a_upperIx]);
+        MultiSort<T>::m_iSwapCounter++;
+        sort_heap(lowerIx1, a_sortedCounter);
+    }
+    MultiSort<T>::m_iFetchCounter += 2;
+    if (lowerIx2 > HeapSort<T>::m_iSize - a_sortedCounter - 1)
+        return;
+    if (MultiSort<T>::m_randomArray[lowerIx2] > MultiSort<T>::m_randomArray[a_upperIx]) {
+        std::swap(MultiSort<T>::m_randomArray[lowerIx2], MultiSort<T>::m_randomArray[a_upperIx]);
+        MultiSort<T>::m_iSwapCounter++;
+        sort_heap(lowerIx2, a_sortedCounter);
+    }
+    MultiSort<T>::m_iFetchCounter += 2;
+}
 
 template <class T>
 std::chrono::microseconds HeapSort<T>::sort()
