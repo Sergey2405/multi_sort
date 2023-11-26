@@ -11,6 +11,7 @@ SortFactory<T>::SortFactory(const int &a_iSize)
     add(new ShakerSort<T>(a_iSize));
     add(new SelectionSort<T>(a_iSize));
     add(new QuickSort<T>(a_iSize));
+    add(new HeapSort<T>(a_iSize));
 
     sort();
     checkSorted();
