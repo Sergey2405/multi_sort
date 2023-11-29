@@ -52,16 +52,30 @@ void HeapSort<T>::sort_heap(int a_upperIx, int a_sortedCounter)
 {
     int lowerIx1 = a_upperIx * 2 + 1;
     int lowerIx2 = lowerIx1 + 1;
+
     if (lowerIx1 > HeapSort<T>::m_iSize - a_sortedCounter - 1)
         return;
-    if (MultiSort<T>::m_randomArray[lowerIx1] > MultiSort<T>::m_randomArray[a_upperIx]) {
+
+    if (MultiSort<T>::m_randomArray[lowerIx1] > MultiSort<T>::m_randomArray[a_upperIx] &&
+        MultiSort<T>::m_randomArray[lowerIx1] > MultiSort<T>::m_randomArray[lowerIx2 ]){
+
         std::swap(MultiSort<T>::m_randomArray[lowerIx1], MultiSort<T>::m_randomArray[a_upperIx]);
         MultiSort<T>::m_iSwapCounter++;
         sort_heap(lowerIx1, a_sortedCounter);
     }
+    MultiSort<T>::m_iFetchCounter += 3;
+
+    if (lowerIx2 > HeapSort<T>::m_iSize - a_sortedCounter - 1 &&
+        MultiSort<T>::m_randomArray[lowerIx1] > MultiSort<T>::m_randomArray[a_upperIx]) {
+        std::swap(MultiSort<T>::m_randomArray[lowerIx1], MultiSort<T>::m_randomArray[a_upperIx]);
+        MultiSort<T>::m_iSwapCounter++;
+        sort_heap(lowerIx1, a_sortedCounter);
+        }
     MultiSort<T>::m_iFetchCounter += 2;
+
     if (lowerIx2 > HeapSort<T>::m_iSize - a_sortedCounter - 1)
         return;
+
     if (MultiSort<T>::m_randomArray[lowerIx2] > MultiSort<T>::m_randomArray[a_upperIx]) {
         std::swap(MultiSort<T>::m_randomArray[lowerIx2], MultiSort<T>::m_randomArray[a_upperIx]);
         MultiSort<T>::m_iSwapCounter++;
